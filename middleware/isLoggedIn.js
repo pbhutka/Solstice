@@ -6,7 +6,7 @@ module.exports = async function (req, res, next){
     if(!req.cookies.token)
         return res.status(400).redirect("/");
 
-    let info = jwt.verify(req.cookies.token, "ppp");
+    let info = jwt.verify(req.cookies.token, process.env.SECRET_KEY);
     let user = await userModel.findOne({email: info.email}).select("-password");
     req.user = user;
     next();

@@ -8,10 +8,11 @@ const postRouter = require("./routes/postRouter");
 const db = require("./config/mongoose-connect");
 const session = require("express-session");
 const flash = require("connect-flash");
+require("dotenv").config();
 
 // Session middleware
 app.use(session({
-  secret: "secretKey",
+  secret: process.env.SECRET_KEY,
   resave: false,
   saveUninitialized: false,
 }));

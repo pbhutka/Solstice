@@ -40,41 +40,4 @@ It includes **authentication, sessions, profile management, and secure CRUD oper
 | **File Handling** | multer |
 | **Environment Config** | dotenv |
 
----
-
-## 📁 Folder Structure
-solstice/
-│
-├── app.js                      # Main Express server setup
-├── package.json                # Dependencies and npm scripts
-├── .env                        # Environment variables (not committed)
-│
-├── config/
-│   └── mongoose-connect.js      # MongoDB connection configuration
-│
-├── models/
-│   ├── userModel.js             # User schema (auth, profile, etc.)
-│   └── postModel.js             # Post schema (image, caption, likes, etc.)
-│
-├── routes/
-│   ├── indexRouter.js           # Main/index routes
-│   ├── userRouter.js            # User-related routes (auth, profile, settings)
-│   └── postRouter.js            # Post-related routes (CRUD, likes, saves)
-│
-├── middleware/
-│   └── authMiddleware.js        # Route protection and user authentication
-│
-├── public/
-│   ├── images/
-│   │   └── uploads/             # User-uploaded images
-│   ├── css/                     # Custom styles (if any)
-│   ├── js/                      # Client-side scripts
-│   └── favicon.ico              # App favicon (optional)
-│
-├── views/
-│   ├── user/                    # User pages (profile, settings)
-│   ├── posts/                   # Post pages (feed, view, edit)
-│   └── index.ejs                # Landing/login page
-│
-└── README.md                    # Project documentation
 

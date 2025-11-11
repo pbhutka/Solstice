@@ -13,6 +13,7 @@ require("dotenv").config();
 // Session middleware
 app.use(session({
   secret: process.env.SECRET_KEY,
+  // secret: "fjkfkjfdkj",
   resave: false,
   saveUninitialized: false,
 }));

@@ -1,80 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Post | ShareFrame</title>
+  <title>Solstice</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
     body {
       font-family: 'Inter', sans-serif;
     }
-    </style>
+  </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-slate-900 text-slate-100 min-h-screen">
 
-  <nav class="bg-white shadow-sm sticky top-0 z-20">
-        <div class="w-full px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-around items-center h-16">
-                <h1 class="text-2xl font-bold mr-auto text-blue-600">shareframe</h1>
-                <div class="flex items-center gap-4">
-                    <a href="/user/logout" title="Logout" class="text-slate-600 hover:text-red-500">
-                         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
-                    </a>
-                    <a href="/user/myprofile" title="My Profile">
-                        <img src="/images/uploads/<%= user.profilepic %>" alt="My Profile" class="w-10 h-10 rounded-full object-cover border-2 border-transparent hover:border-blue-500 transition-all"/>
-                    </a>
-                </div>
-            </div>
+  <!-- Navbar -->
+  <nav class="bg-slate-800 shadow-sm sticky top-0 z-20 border-b border-slate-700">
+    <div class="w-full px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-around items-center h-16">
+        <h1 class="text-2xl font-bold mr-auto text-blue-500"><a href="/posts/homepage">Solstice</a></h1>
+        <div class="flex items-center gap-4">
+          <a href="/user/logout" title="Logout" class="text-slate-300 hover:text-red-500 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+          </a>
+          <a href="/user/myprofile" title="My Profile">
+            <img src="/images/uploads/<%= user.profilepic %>" alt="My Profile" class="w-10 h-10 rounded-full object-cover border-2 border-transparent hover:border-blue-500 transition-all"/>
+          </a>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 
+  <!-- Main -->
   <main class="w-full max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
     
-    <div class="mb-4">
-        <a href="/posts/homepage" class="text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors inline-flex items-center gap-2">
-            <svg xmlns="http://www.w.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Cancel and Go Back
-        </a>
+    <div class="mb-4 flex item-center gap-6">
+      <a href="/posts/homepage" class="text-sm font-medium text-slate-400 hover:text-blue-500 transition-colors inline-flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Cancel and Go Back
+      </a>
+      <a href="/posts/deletepost/<%= post._id %>" class="text-sm font-medium text-red-400 hover:text-red-500 transition-colors inline-flex items-center gap-2">
+        Delete Post
+      </a>
     </div>
     
-    <div class="bg-white shadow-md rounded-2xl overflow-hidden">
+    <div class="bg-slate-800 shadow-md rounded-2xl overflow-hidden border border-slate-700">
       <div class="grid md:grid-cols-2">
 
-        <div class="p-6 bg-gray-50 border-b md:border-b-0 md:border-r border-gray-200">
-            <label class="block text-sm font-medium text-gray-500 mb-2">Current Image</label>
-            <div class="aspect-square rounded-xl overflow-hidden">
-                <img src="/images/uploads/<%= post.image %>" alt="Current post image" class="w-full h-full object-cover">
-            </div>
+        <!-- Current Image -->
+        <div class="p-6 bg-slate-800 border-b md:border-b-0 md:border-r border-slate-700">
+          <label class="block text-sm font-medium text-slate-400 mb-2">Current Image</label>
+          <div class="aspect-square rounded-xl overflow-hidden bg-slate-700">
+            <img src="/images/uploads/<%= post.image %>" alt="Current post image" class="w-full h-full object-cover">
+          </div>
         </div>
 
+        <!-- Edit Form -->
         <div class="p-8">
           <div class="mb-6">
-            <h1 class="text-2xl font-bold text-gray-900">Edit Your Post</h1>
-            <p class="text-gray-500 mt-1">Make changes to your post's title and caption.</p>
+            <h1 class="text-2xl font-bold text-slate-100">Edit Your Post</h1>
+            <p class="text-slate-400 mt-1">Make changes to your post's title and caption.</p>
           </div>
           
           <form action="/posts/editpost/<%= post._id %>" method="post" class="space-y-6">
             <div>
-              <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Title</label>
-              <input type="text" name="title" id="title" value="<%= post.title %>" class="w-full p-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="Enter a catchy title">
+              <label for="title" class="block text-sm font-medium text-slate-300 mb-1">Title</label>
+              <input
+                autocomplete="off"
+                type="text" 
+                name="title" 
+                id="title" 
+                value="<%= post.title %>" 
+                class="w-full p-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-slate-100 placeholder-slate-400 transition-colors" 
+                placeholder="Enter a catchy title">
             </div>
             <div>
-              <label for="caption" class="block text-sm font-medium text-gray-700 mb-1">Caption</label>
-              <textarea name="caption" id="caption" rows="5" class="w-full resize-none p-3 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" placeholder="Describe your post..."><%= post.caption %></textarea>
+              <label for="caption" class="block text-sm font-medium text-slate-300 mb-1">Caption</label>
+              <textarea
+                autocomplete="off"
+                name="caption" 
+                id="caption" 
+                rows="5" 
+                class="w-full resize-none p-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-slate-100 placeholder-slate-400 transition-colors" 
+                placeholder="Describe your post..."><%= post.caption %></textarea>
             </div>
             <div class="pt-2">
-              <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-300">
+              <button 
+                type="submit" 
+                class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-900 transition-all duration-300">
                 Save Changes
               </button>
             </div>
           </form>
         </div>
+
       </div>
     </div>
   </main>

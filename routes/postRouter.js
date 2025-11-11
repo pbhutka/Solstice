@@ -59,6 +59,10 @@ router.get("/editpost/:id", isLoggedIn, async function (req, res) {
   let post = await postModel.findOne({ _id: req.params.id });
   res.render("editpost", { post, user: req.user });
 });
+router.get("/deletepost/:id", isLoggedIn, async function (req, res) {
+  let post = await postModel.findOneAndDelete({ _id: req.params.id });
+  res.redirect('/posts/homepage');
+});
 
 router.post("/editpost/:id", isLoggedIn, async function (req, res) {
   let now = new Date();
@@ -82,6 +86,7 @@ router.post("/editpost/:id", isLoggedIn, async function (req, res) {
     { title: req.body.title, caption: req.body.caption, time: dateTime },
     { new: true }
   );
+  req.flash("message", "Changes Applied")
   res.redirect("/posts/homepage");
 });
 

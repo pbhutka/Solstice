@@ -34,6 +34,7 @@ router.post("/register", async function (req, res) {
     username,
     email,
     password: hash,
+    gender: "Male"
   });
 
   let token = generateToken(user);

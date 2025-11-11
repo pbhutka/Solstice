@@ -45,38 +45,36 @@ It includes **authentication, sessions, profile management, and secure CRUD oper
 ## 📁 Folder Structure
 solstice/
 │
-├── app.js                       # Main Express server setup
-├── package.json                 # Dependencies and scripts
-├── .env                         # Environment variables (not committed)
+├── app.js                      # Main Express server setup
+├── package.json                # Dependencies and npm scripts
+├── .env                        # Environment variables (not committed)
 │
 ├── config/
-│   └── mongoose-connect.js       # MongoDB connection configuration
+│   └── mongoose-connect.js      # MongoDB connection configuration
 │
 ├── models/
-│   ├── userModel.js              # User schema (profile, auth, etc.)
-│   └── postModel.js              # Post schema (image, caption, likes, etc.)
+│   ├── userModel.js             # User schema (auth, profile, etc.)
+│   └── postModel.js             # Post schema (image, caption, likes, etc.)
 │
 ├── routes/
-│   ├── indexRouter.js            # Landing and general routes
-│   ├── userRouter.js             # User-related routes (auth, profile, settings)
-│   └── postRouter.js             # Post-related routes (CRUD, likes, saves)
+│   ├── indexRouter.js           # Main/index routes
+│   ├── userRouter.js            # User-related routes (auth, profile, settings)
+│   └── postRouter.js            # Post-related routes (CRUD, likes, saves)
 │
 ├── middleware/
-│   └── authMiddleware.js         # Authentication and access control
+│   └── authMiddleware.js        # Route protection and user authentication
 │
 ├── public/
 │   ├── images/
-│   │   └── uploads/              # User-uploaded images
-│   ├── css/                      # Custom styles (if any)
-│   ├── js/                       # Client-side scripts
-│   └── favicon.ico               # App icon (optional)
+│   │   └── uploads/             # User-uploaded images
+│   ├── css/                     # Custom styles (if any)
+│   ├── js/                      # Client-side scripts
+│   └── favicon.ico              # App favicon (optional)
 │
 ├── views/
-│   ├── partials/                 # Shared EJS components (navbars, footers, etc.)
-│   ├── user/                     # User-specific pages (profile, settings, etc.)
-│   ├── posts/                    # Post-related pages (feed, edit, view, etc.)
-│   └── index.ejs                 # Landing / Login page
+│   ├── user/                    # User pages (profile, settings)
+│   ├── posts/                   # Post pages (feed, view, edit)
+│   └── index.ejs                # Landing/login page
 │
-└── README.md                     # Project documentation
-
+└── README.md                    # Project documentation
 

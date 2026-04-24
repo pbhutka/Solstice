@@ -1,4 +1,4 @@
-# 🌅 Solstice — A Full-Stack Social Media App (Backend by Me)
+# 🌅 Solstice — A Social Media App (Backend by Me)
 
 Solstice is a **Node.js + Express-based web app** that lets users share posts with images, titles, and captions — and interact through likes and saves.  
 It includes **authentication, sessions, profile management, and secure CRUD operations** for both users and posts.
